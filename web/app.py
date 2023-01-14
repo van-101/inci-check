@@ -4,9 +4,9 @@ app=Flask(__name__)
 
 @app.route('/')
 def main_page():
-   return render_template('index.html')
-def work_page():
-   return render_template('scan.html')
+   # return render_template('index.html')
+   return render_template('output.html')
+   # return render_template('output.html')
 
 if __name__=='__main__':
     app.run(debug=True)
