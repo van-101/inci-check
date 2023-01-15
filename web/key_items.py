@@ -15,7 +15,7 @@ def filter_text(text=None):
     # print(ingredients)
     comps = ingredients.split(',')
     comp_set = set(comps)
-    if len(comp_set) != len(comps):
+    if len(comp_set) == len(comps):
         output['repeated'] = "Yes"
     else:
         output['repeated'] = "No"
@@ -27,8 +27,8 @@ def filter_text(text=None):
         if pdobj is None:
             bad_comp.append(compound)
     output['inci_not'] = bad_comp
-    output['aqua'] = "First"
-    output['preservatives'] = "Present"
+    output['aqua'] = "Yes"
+    output['preservatives'] = "Yes"
 
     output = json.dumps(output, indent=4)
     return output

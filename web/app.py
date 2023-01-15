@@ -17,10 +17,10 @@ def results(output = None):
    json_data = json.loads(json_data)
    rep = json_data['repeated']
    inci_list = ", ".join(list(json_data['inci_not']))
-   if inci_list != "":
-      inci = "Passed"
+   if inci_list == "":
+      inci = "No"
    else:
-      inci = "Doesn't Pass"
+      inci = "Yes"
    aqua = json_data['aqua']
    pres = json_data['preservatives']
    print(json_data, file=sys.stdout)
