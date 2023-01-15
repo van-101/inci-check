@@ -18,9 +18,9 @@ def results(output = None):
    rep = json_data['repeated']
    inci_list = ", ".join(list(json_data['inci_not']))
    if inci_list == "":
-      inci = "No"
-   else:
       inci = "Yes"
+   else:
+      inci = "No"
    aqua = json_data['aqua']
    pres = json_data['preservatives']
    print(json_data, file=sys.stdout)
