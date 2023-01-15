@@ -1,6 +1,5 @@
 import pandas as pd
-import numpy as np
-import sqlite3 as sql
+import json
 
 
 # if __name__ == "__main__":
@@ -15,13 +14,23 @@ def filter_text(text=None):
     ingredients = ingredients.split('\n\n')[0]
     # print(ingredients)
     comps = ingredients.split(',')
+    comp_set = set(comps)
+    if len(comp_set) != len(comps):
+        output['repeated'] = "Yes"
+    else:
+        output['repeated'] = "No"
+    
+    bad_comp = []
     for compound in comps:
         compound = compound[1:]
         pdobj = locate_compound(compound)
-        if pdobj is not None:
-            output[compound] = pdobj
-        else:
-            output[compound] = "Not Found"
+        if pdobj is None:
+            bad_comp.append(compound)
+    output['inci_not'] = bad_comp
+    output['aqua'] = "First"
+    output['preservatives'] = "Present"
+
+    output = json.dumps(output, indent=4)
     return output
 
 
