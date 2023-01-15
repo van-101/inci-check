@@ -109,7 +109,11 @@
                            <span>Hello!</span>
                            <h1>The conscientious cat.</h1>
                            <p>Helping you be a little more concious about what you are putting on your skin. </p>
-                           <a class="get_btn" href="Javascript:void(0)" role="button">Try us!</a>
+                           <!-- <a class="get_btn" href="Javascript:void(0)" role="button">Try us!</a> -->
+                           <form method="get" enctype="multipart/form-data" action="{{url_for('upload')}}">
+                              <!-- <input type="file" name="file" value="Upload" class="btn btn-light"> -->
+                              <input name='tryus' type="submit" value="Try Us!" class="btn btn-dark">
+                           </form>
                         </div>
                      </div>
                   </div>
